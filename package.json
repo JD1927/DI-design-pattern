@@ -1,0 +1,33 @@
+{
+  "name": "di-design-pattern",
+  "version": "1.0.0",
+  "description": "Dependency Injection",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/app.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JD1927/DI-design-pattern.git"
+  },
+  "author": "Juan Aguirre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JD1927/DI-design-pattern/issues"
+  },
+  "homepage": "https://github.com/JD1927/DI-design-pattern#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.6",
+    "ts-node-dev": "^1.1.8"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.4.0",
+    "typedi": "^0.10.0",
+    "typescript": "^4.4.4"
+  }
+}
