@@ -1,6 +1,7 @@
 import { Service } from 'typedi';
-import { User } from '../models/user.model';
+import { IUser } from '../models/user.model';
 import { UserRepository } from '../repositories/user.repository';
+import { RoleService } from './role.service';
 
 @Service()
 export class UserService {
@@ -11,10 +12,16 @@ export class UserService {
   //   this.userRepository = userRepository;
   // }
 
-  constructor(private userRepository: UserRepository) {}
+  constructor(
+    private userRepository: UserRepository,
+    private roleService: RoleService
+  ) {}
 
-  async getAllUsers(): Promise<User[]> {
-    const result = await this.userRepository.getAllUsers();
-    return result;
+  async getAllUsers(roleId: string): Promise<IUser[] | undefined> {
+    const selectedRole = await this.roleService.getRoleById(roleId);
+    if (selectedRole?.name === 'ADMIN') {
+      return await this.userRepository.getAllUsers();
+    }
+    return undefined;
   }
 }

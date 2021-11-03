@@ -11,6 +11,7 @@ const main = async () => {
   const userController = Container.get(UserController); // Registro de la Clase UserController.
   // Una vez hecho el registro, en tiempo de ejecución se encarga de resolver las dependencias.
   app.get('/users', (req, res) => userController.getAllUsers(req, res));
+  app.get('/users/:roleId', (req, res) => userController.getAllUsers(req, res));
 
   app.listen(port, () => console.log('Server started!'));
 };
